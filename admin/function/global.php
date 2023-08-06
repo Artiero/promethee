@@ -11,3 +11,19 @@ function query_data($data)
     }
     return $rows;
 }
+
+function total_pendaftar(){
+    global $conn;
+    $cekData = mysqli_query($conn," SELECT * FROM tbl_calon_karyawan");
+    $resultData = mysqli_num_rows($cekData);
+
+    return $resultData;
+}
+
+function total_admin(){
+    global $conn;
+    $cekData = mysqli_query($conn," SELECT * FROM tbl_admin");
+    $resultData = mysqli_num_rows($cekData);
+
+    return $resultData;
+}

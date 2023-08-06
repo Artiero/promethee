@@ -4,7 +4,7 @@ session_start();
 if (!isset($_SESSION['username'])) {
     header('Location: login.php');
 }
-
+require './function/global.php';
 ?>
 
 
@@ -59,54 +59,39 @@ if (!isset($_SESSION['username'])) {
 
                     <!-- Content Row -->
                     <div class="row">
-                        <p class="h3 mb-4 text-gray-800">PENERAPAN ALGORITAMA PROMETHEE DALAM OPTIMILISASI<br>
-                            PENYELEKSIAN CALON KARYAWAN BERBASIS WEB PADA PT. TRI LINTAS NSANTARA</p>
+                        <p class="h3 mb-4 text-gray-900">PENERAPAN ALGORITAMA PROMETHEE DALAM OPTIMILISASI
+                            PENYELEKSIAN CALON KARYAWAN <br>BERBASIS WEB PADA PT. TRI LINTAS NSANTARA</p>
 
-                        <!-- Earnings (Monthly) Card Example -->
-                        
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        
-
-                        <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Admin
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= total_admin() ?></div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Pending Requests Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
+                            <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Pendaftar
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= total_pendaftar() ?></div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

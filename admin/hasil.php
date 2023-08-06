@@ -73,15 +73,14 @@ $userAdmin = $_SESSION['username'];
                                             <th>Leving Flow</th>
                                             <th>Entering Flow</th>
                                             <th>Net Flow</th>
-
                                             <!-- <th>Berkas</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                                $no = 1;
-                                                foreach ($hasils as $hasil) :
-                                                ?>
+                                        $no = 1;
+                                        foreach ($hasils as $hasil) :
+                                        ?>
                                             <tr>
                                                 <td>
                                                     <?= $no ?>
@@ -100,38 +99,31 @@ $userAdmin = $_SESSION['username'];
                                                 </td>
                                             </tr>
                                             <?php
-                                                    $no++;
+                                            $no++;
                                             ?>
                                     </tbody>
                                 <?php
-                                                endforeach;
+                                endforeach;
                                 ?>
                                 </table>
                                 <?php
                                 $calon_karyawans = query_data(" SELECT*FROM tbl_calon_karyawan");
-                                // var_dump($calon_karyawans);
                                 hasil($calon_karyawans);
                                 ?>
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <!-- /.container-fluid -->
-
             </div>
             <!-- End of Main Content -->
-
             <?php
             require 'views/footer.php';
             ?>
-
         </div>
         <!-- End of Content Wrapper -->
-
     </div>
     <!-- End of Page Wrapper -->
-
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
