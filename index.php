@@ -52,16 +52,15 @@ if (!isset($_SESSION['username'])) {
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">SELAMAT DATANG</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <h1 class="h3 mb-0 text-gray-800">SELAMAT DATANG <br>SILAHKAN LENGKAPI PROFILE UNTUK MELANJUTKAN PROSES
+                            PENDAFTARAN.</h1>
                     </div>
 
                     <!-- Content Row -->
                     <div class="row">
 
                         <!-- Earnings (Monthly) Card Example -->
-                        <p class="h3 mb-4 text-gray-900"> SILAHKAN LENGKAPI PROFILE UNTUK MELANJUTKAN PROSES
-                            PENDAFTARAN. <br>HASIL AKAN DI TAMPILKAN DI WEB</p>
+                        <p class="h3 mb-4 text-gray-900"> HASIL AKAN DI TAMPILKAN DI WEB </p>
                     </div>
 
                 </div>
