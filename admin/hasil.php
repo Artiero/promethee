@@ -9,6 +9,9 @@ $hasils = query_data('SELECT * FROM tbl_hasil');
 // var_dump($hasils);
 $username = $_SESSION['username'];
 $userAdmin = $_SESSION['username'];
+$hasil = hasil_test();
+$nilai = $hasil[0];
+$nama = $hasil[1];
 ?>
 
 
@@ -103,7 +106,7 @@ $userAdmin = $_SESSION['username'];
                                             ?>
                                     </tbody>
                                 <?php
-                                endforeach;
+                                        endforeach;
                                 ?>
                                 </table>
                                 <?php
@@ -111,12 +114,19 @@ $userAdmin = $_SESSION['username'];
                                 hasil($calon_karyawans);
                                 ?>
                             </div>
+
                         </div>
                     </div>
                 </div>
                 <!-- /.container-fluid -->
+                <div class="h3 container-fluid text-gray-900">
+                Berdasarkan hasil perhitungan tersebut
+                nilai Net Flow terbesar yaitu <?= $nilai ?> <br>
+                maka calon pendaftar dengan nilai tertinggi adalah <?= $nama ?> .
+                </div>
+                
             </div>
-            <!-- End of Main Content -->
+                <!-- End of Main Content -->
             <?php
             require 'views/footer.php';
             ?>

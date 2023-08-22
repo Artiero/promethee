@@ -17,7 +17,7 @@ require './function/functuion_login.php';
     <title>Login Admin</title>
 
     <?php
-        require 'views/link.php';
+    require 'views/link.php';
     ?>
 
 </head>
@@ -42,7 +42,7 @@ require './function/functuion_login.php';
                                     </div>
                                     <form class="user" action="" method="POST">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user"  placeholder="Enter Username..." name="username">
+                                            <input type="text" class="form-control form-control-user" placeholder="Enter Username..." name="username">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user" name="password" placeholder="Password">
@@ -52,6 +52,12 @@ require './function/functuion_login.php';
                                         </button>
                                     </form>
                                     <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="../login.php">Login Pendaftar</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="login_pimpinan.php">Login Pimpinan</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -65,12 +71,12 @@ require './function/functuion_login.php';
     </div>
 
     <?php
-        require 'views/script.php';
-        if (isset($_POST['submit'])) {
-            $username = $_POST['username'];
-            if (login($_POST) === true) {
-                $_SESSION['username'] = $username;
-                echo '
+    require 'views/script.php';
+    if (isset($_POST['submit'])) {
+        $username = $_POST['username'];
+        if (login($_POST) === true) {
+            $_SESSION['username'] = $username;
+            echo '
                     <script type="text/javascript">
                         swal({
                             title: "Berhasil",
@@ -84,8 +90,8 @@ require './function/functuion_login.php';
                         });
                     </script>
                 ';
-            } else {
-                echo '
+        } else {
+            echo '
                     <script type="text/javascript">
                         swal({
                             title: "Gagal",
@@ -99,8 +105,8 @@ require './function/functuion_login.php';
                         });
                     </script>
                 ';
-            }
         }
+    }
     ?>
 
 </body>

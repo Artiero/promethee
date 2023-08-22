@@ -6,7 +6,10 @@ if (!isset($_SESSION['username'])) {
 require './function/global.php';
 $username = $_SESSION['username'];
 $hasils = query_data("SELECT * FROM tbl_hasil WHERE username = '$username' ");
-// var_dump($hasils);
+$hasil = hasil_test_karyawan();
+$nilai = $hasil[0];
+$netflow = (float)$hasils[0]["net_flow"];
+// var_dump($nilai);
 ?>
 
 
@@ -22,7 +25,7 @@ $hasils = query_data("SELECT * FROM tbl_hasil WHERE username = '$username' ");
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin</title>
+    <title>Hasil Karyawan</title>
 
     <?php
     require 'views/link.php';
@@ -111,6 +114,17 @@ $hasils = query_data("SELECT * FROM tbl_hasil WHERE username = '$username' ");
 
                 </div>
                 <!-- /.container-fluid -->
+                <div class="h3 container-fluid text-gray-900">
+                <?php
+                if ( $netflow >= $nilai){
+                    echo "Kepada peserta yang lolos, selamat atas pencapaian Anda!<br>
+                    Kami akan menghubungi Anda untuk langkah-langkah selanjutnya dalam proses ini.";
+                }else {
+                    echo "Kepada peserta yang tidak lolos, kami mengucapkan terima kasih atas partisipasi Anda.<br>
+                    Jangan ragu untuk mencoba lagi di kesempatan berikutnya.";
+                }
+                ?>
+                </div>
 
             </div>
             <!-- End of Main Content -->

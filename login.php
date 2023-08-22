@@ -55,6 +55,9 @@ require './function/functuion_login.php';
                                     <div class="text-center">
                                         <a class="small" href="register.php">Register</a>
                                     </div>
+                                    <div class="text-center">
+                                        <a class="small" href="admin/login.php">Login Admin</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

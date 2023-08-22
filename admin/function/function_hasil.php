@@ -13,7 +13,6 @@ function hasil($data)
     $nilai_netFlow = [];
     foreach ($data as $index) :
         $username = $index['username'];
-        // var_dump($username);
         $username_pendaftar[] = $username;
 
         $nama = $index['nama'];
@@ -111,7 +110,6 @@ function hasil($data)
             '$Net_Flow'
             )");
             $result = mysqli_affected_rows($conn);
-            var_dump($result);
             if (mysqli_error($conn)) {
                 echo "Error: " . mysqli_error($conn);
             }
@@ -120,39 +118,4 @@ function hasil($data)
 
 
     endforeach;
-
-    // $user_pendaftar = implode(",", $username_pendaftar);
-    // $username_karyawan = explode(",", $user_pendaftar);
-    // // var_dump($username_karyawan);
-
-    // $nama_pendaftar = implode(", ", $nama_pendaftar);
-    // $nama_karyawan = explode(",", $nama_pendaftar);
-    // // var_dump($nama_karyawan);
-
-    // $user_leavingFlow = implode(",", $nilai_leavingFlow);
-    // $leaving = explode(",", $user_leavingFlow);
-    // // var_dump($leaving);
-
-    // $user_enteringflow = implode(",", $nilai_enteringFlow);
-    // $entering = explode(",", $user_enteringflow);
-    // // var_dump($entering);
-
-    // $user_netflow = implode(",", $nilai_netFlow);
-    // $net = explode(",", $user_netflow);
-    // // var_dump($net);
-
-
-    // mysqli_query($conn, "INSERT INTO tbl_hasil VALUES 
-    // (NULL,
-    // '$username_karyawan',
-    // '$nama_karyawan',
-    // '$leaving',
-    // '$entering',
-    // '$net'
-    // )");
-    // $result =  mysqli_affected_rows($conn);
-    // var_dump($result);
-    //     if (mysqli_error($conn)) {
-    //         echo "Error: " . mysqli_error($conn);
-    //     }
 }
