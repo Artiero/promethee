@@ -37,23 +37,21 @@ function hasil_test(){
         $nilai_float = $tbl_hasil["net_flow"];
         $float = (float)$nilai_float;
         $nama_calon = $tbl_hasil["nama_pendaftar"];
-        $nama = $nama_calon;
-        $array_float[] = ["net_flow" => $float, "nama_pendaftar" => $nama];
+        $array_float[] = ["net_flow" => $float, "nama_pendaftar" => $nama_calon];
     endforeach;
     
-    $nilai_terbesar = null;
+    $nilai_terbesar = null; 
     
     foreach ($array_float as $item) :
-        $nilai = $item["net_flow"];
         $nama_karyawan = $item["nama_pendaftar"];
+        $nilai = $item["net_flow"];
 
         if ($nilai_terbesar === null || $nilai > $nilai_terbesar) {
-            $nilai_terbesar = $nilai;
             $nama_pendaftar = $nama_karyawan;
+            $nilai_terbesar = $nilai;
             // var_dump($nama_pendaftar);
         }
     endforeach;
-    
-    // Cetak nilai terbesar setelah perulangan selesai
-    return [$nilai_terbesar,$nama_pendaftar];
+
+    return [$nilai_terbesar , $nama_pendaftar];
 }

@@ -142,9 +142,16 @@ $nama = $hasil[1];
                 </div>
                 <!-- /.container-fluid -->
                 <div class="h3 container-fluid text-gray-900">
-                    Berdasarkan hasil perhitungan tersebut
-                    nilai Net Flow terbesar yaitu <?= $nilai ?> <br>
-                    maka calon pendaftar dengan nilai tertinggi adalah <?= $nama ?> .
+                    <?php
+                    if ( $nilai && $nama){
+                        echo "Berdasarkan hasil perhitungan tersebut
+                        nilai Net Flow terbesar yaitu " .$nilai. " <br>
+                        maka calon pendaftar dengan nilai tertinggi adalah " . $nama;
+                    }else {
+                        echo "Data belum di proses";
+                    }
+                    ?>
+                    
                 </div>
 
             </div>
