@@ -58,8 +58,7 @@ if (!isset($_SESSION['username'])) {
 
                     <!-- Content Row -->
                     <div class="row">
-
-                        <!-- Earnings (Monthly) Card Example -->
+                        <p class="h3 mb-0 text-gray-900"> <b>AKHIR PENDAFTARAN SAMPAI TANGGAL 1 SEPTEMBER 2023</b>  </p>
                         <p class="h3 mb-4 text-gray-900"> HASIL AKAN DI TAMPILKAN DI WEB </p>
                     </div>
 
