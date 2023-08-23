@@ -68,6 +68,7 @@ $nama = $hasil[1];
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
+                                <button class="btn btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#modalHapus">Delete</button>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
@@ -105,6 +106,27 @@ $nama = $hasil[1];
                                             $no++;
                                             ?>
                                     </tbody>
+                                    <!-- Start delete modal -->
+                                    <div class="modal fade-costum" id="modalHapus" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Hapus Data</h5>
+                                                    <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form role="form" action="" method="POST" autocomplete="off">
+                                                            <p>Yakin untuk menghapus hasil perhitungan ?</p>
+                                                            <div class="flex text-center mt-4 mb-3">
+                                                                <button type="button" class="btn btn-secondary mr-2" data-bs-dismiss="modal">Batal</button>
+                                                                <button type="submit" name="hapus" class="btn btn-danger ml-2">Hapus</button>
+                                                            </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End delete modal -->
                                 <?php
                                         endforeach;
                                 ?>
@@ -120,13 +142,13 @@ $nama = $hasil[1];
                 </div>
                 <!-- /.container-fluid -->
                 <div class="h3 container-fluid text-gray-900">
-                Berdasarkan hasil perhitungan tersebut
-                nilai Net Flow terbesar yaitu <?= $nilai ?> <br>
-                maka calon pendaftar dengan nilai tertinggi adalah <?= $nama ?> .
+                    Berdasarkan hasil perhitungan tersebut
+                    nilai Net Flow terbesar yaitu <?= $nilai ?> <br>
+                    maka calon pendaftar dengan nilai tertinggi adalah <?= $nama ?> .
                 </div>
-                
+
             </div>
-                <!-- End of Main Content -->
+            <!-- End of Main Content -->
             <?php
             require 'views/footer.php';
             ?>
@@ -141,6 +163,41 @@ $nama = $hasil[1];
     <?php
     require 'views/script.php';
     require 'views/modalLogout.php';
+
+    if (isset($_POST['hapus'])) {
+        // var_dump($_POST);
+        if (hapus_data_hasil($_POST) > 0) {
+            echo '
+                <script type="text/javascript">
+                    swal({
+                        title: "Berhasil",
+                        text: "Berhasil Dihapus",
+                        icon: "success",
+                        showConfirmButton: true,
+                    }).then(function(isConfirm){
+                        if(isConfirm){
+                            window.location.replace("hasil.php");
+                        }
+                    });
+                </script>
+            ';
+        } else {
+            echo '
+                <script type="text/javascript">
+                    swal({
+                        title: "Gagal",
+                        text: "Gagal Dihapus",
+                        icon: "error",
+                        showConfirmButton: true,
+                    }).then(function(isConfirm){
+                        if(isConfirm){
+                            window.location.replace("hasil.php");
+                        }
+                    });
+                </script>
+            ';
+        }
+    }
     ?>
 
 </body>

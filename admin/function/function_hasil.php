@@ -119,3 +119,13 @@ function hasil($data)
 
     endforeach;
 }
+
+function hapus_data_hasil()
+{
+    global $conn;
+    mysqli_query($conn, "DELETE FROM tbl_hasil");
+    return mysqli_affected_rows($conn);
+    if (mysqli_error($conn)) {
+        echo "Error: " . mysqli_error($conn);
+    }
+}
