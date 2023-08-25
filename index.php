@@ -4,6 +4,12 @@ session_start();
 if (!isset($_SESSION['username'])) {
     header('Location: login.php');
 }
+require './function/global.php';
+$username = $_SESSION['username'];
+$nama = query_data(" SELECT nama FROM tbl_calon_karyawan WHERE username = '$username'");
+$nama_pendaftar = $nama[0];
+$calon = implode($nama_pendaftar);
+// var_dump($calon)
 
 ?>
 
@@ -52,13 +58,12 @@ if (!isset($_SESSION['username'])) {
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">SELAMAT DATANG <br>SILAHKAN LENGKAPI PROFILE UNTUK MELANJUTKAN PROSES
+                        <h1 class="h3 mb-0 text-gray-800">Selamat Datang <b><?= $calon ?></b> <br>SILAHKAN LENGKAPI PROFILE UNTUK MELANJUTKAN PROSES
                             PENDAFTARAN.</h1>
                     </div>
 
                     <!-- Content Row -->
                     <div class="row">
-                        <p class="h3 mb-0 text-gray-900"> <b>AKHIR PENDAFTARAN SAMPAI TANGGAL 1 SEPTEMBER 2023</b>  </p>
                         <p class="h3 mb-4 text-gray-900"> HASIL AKAN DI TAMPILKAN DI WEB </p>
                     </div>
 
