@@ -37,7 +37,7 @@ $userAdmin = $_SESSION['username'];
     <div id="wrapper">
 
         <?php
-        $page = 2;
+        $page = 7;
         require 'views/sidebar.php';
         ?>
 

@@ -54,7 +54,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <textarea name="alamat" class="form-control"></textarea>
+                                    <textarea name="alamat" class="form-control" placeholder="Alamat"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="no_telpon" placeholder="No Telpon">

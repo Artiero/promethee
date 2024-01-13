@@ -21,6 +21,16 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item <?= $page == 7 ? 'active' : '' ?>">
+        <a class="nav-link" href="admin.php">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Admin</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
     <!-- Nav Item - Admin -->
     <li class="nav-item <?= $page == 2 ? 'active' : '' ?>">
         <a class="nav-link" href="data_pendaftar.php">

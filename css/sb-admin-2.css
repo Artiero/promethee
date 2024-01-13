@@ -10861,25 +10861,17 @@ a:focus {
 }
 
 .bg-login{
-  background: url("../admin/assets/bacground/image_backbround.jpg");
   background-position: center;
   background-size: cover;
 }
 
-/* .bg-login-image {
-  background: url("../assets/bacground/image_backbround.jpg");
-  background-position: center;
-  background-size: cover;
-} */
 
-.bg-register-image {
-  background: url("https://source.unsplash.com/Mv9hjnEUHR4/600x800");
+.bg-register {
   background-position: center;
   background-size: cover;
 }
 
 .bg-password-image {
-  background: url("https://source.unsplash.com/oWTW-jNGl9I/600x800");
   background-position: center;
   background-size: cover;
 }

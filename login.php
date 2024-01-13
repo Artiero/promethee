@@ -32,7 +32,6 @@ require './function/functuion_login.php';
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-                                        <p>AKHIR PENDAFTARAN SAMPAI TANGGAL 01 SEPTEMBER 2023</p>
                                     </div>
                                     <form class="user" action="" method="POST">
                                         <div class="form-group">
