@@ -320,7 +320,7 @@ $sub_kriterias = query_data('SELECT*FROM tbl_sub_kriteria');
                         showConfirmButton: true,
                     }).then(function(isConfirm){
                         if(isConfirm){
-                            window.location.replace("kriteria_karyawan.php");
+                            window.location.replace("sub_kriteria.php");
                         }
                     });
                 </script>

@@ -6,7 +6,8 @@ function tambah_data_kriteria($data)
     global $conn;
     $id = $data['id'];
     $nama_kriteria = $data['nama_kriteria'];
-    mysqli_query($conn, "INSERT INTO tbl_kriteria VALUES('$id','$nama_kriteria')");
+    $bobot = $data['bobot'];
+    mysqli_query($conn, "INSERT INTO tbl_kriteria VALUES('$id','$nama_kriteria',$bobot)");
     return mysqli_affected_rows($conn);
 }
 
@@ -22,6 +23,7 @@ function ubah_data_kriteria($data)
     global $conn;
     $id = $data['id'];
     $nama_kriteria = $data['nama_kriteria'];
-    return mysqli_query($conn, "UPDATE tbl_kriteria SET nama_kriteria='$nama_kriteria' WHERE id='$id'");
+    $bobot = $data['bobot'];
+    return mysqli_query($conn, "UPDATE tbl_kriteria SET nama_kriteria='$nama_kriteria' , bobot = $bobot WHERE id='$id'");
     // var_dump($resulst);
 }

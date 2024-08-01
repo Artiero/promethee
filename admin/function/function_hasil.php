@@ -90,7 +90,7 @@ function hasil($data)
         $Entering_Flow = ($Indeks_Entering_FLow / 4) * 1 / 3;
         $nilai_enteringFlow[] = $Entering_Flow;
 
-        $Net_Flow = $Entering_Flow - $Leaving_Flow;
+        $Net_Flow = $Leaving_Flow - $Entering_Flow;
         $nilai_netFlow[] = $Net_Flow;
 
         $hasil = query_data("SELECT*FROM tbl_hasil");
@@ -114,6 +114,7 @@ function hasil($data)
                 echo "Error: " . mysqli_error($conn);
             }
         }
+
 
 
 

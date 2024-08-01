@@ -5,11 +5,12 @@ if (!isset($_SESSION['username'])) {
 }
 require './function/global.php';
 $username = $_SESSION['username'];
-$hasils = query_data("SELECT * FROM tbl_hasil WHERE username = '$username' ");
+$hasils = query_data("SELECT*FROM tbl_hasil WHERE username = '$username' ");
+$smarts = query_data(" SELECT*FROM tbl_hasil_smart WHERE username = '$username'");
 $hasil = hasil_test_karyawan();
 $nilai = $hasil[0];
 $netflow = (float)$hasils[0]["net_flow"];
-// var_dump($nilai);
+// var_dump($username);
 ?>
 
 
@@ -66,6 +67,7 @@ $netflow = (float)$hasils[0]["net_flow"];
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
+                            <h3>PROMETHEE</h3>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
@@ -104,6 +106,45 @@ $netflow = (float)$hasils[0]["net_flow"];
                                                     $no++;
                                             ?>
                                     </tbody>
+                                    
+                                <?php
+                                                endforeach;
+                                ?>
+                                </table>
+                            </div>
+                            <div class="table-responsive pt-5">
+                                <h3>SMART</h3>
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th>
+                                            <th>Hasil</th>
+
+                                            <!-- <th>Berkas</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                                $no = 1;
+                                                foreach ($smarts as $smart) :
+                                                ?>
+                                            <tr>
+                                                <td>
+                                                    <?= $no ?>
+                                                </td>
+                                                <td>
+                                                    <?= $smart['nama_pendaftar'] ?>
+                                                </td>
+                                                <td>
+                                                    <?= $smart['hasil'] ?>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                                    $no++;
+                                            ?>
+                                    </tbody>
+                                    
                                 <?php
                                                 endforeach;
                                 ?>

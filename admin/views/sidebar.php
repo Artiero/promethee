@@ -64,11 +64,18 @@
     <li class="nav-item <?= $page == 6 ? 'active' : '' ?>">
         <a class="nav-link" href="hasil.php">
             <i class="fas fa-fw fa-table"></i>
-            <span>Proses Keputusan</span></a>
+            <span>Metode PROMETHEE</span></a>
     </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Nav Item - Tables -->
+    <li class="nav-item <?= $page == 8 ? 'active' : '' ?>">
+        <a class="nav-link" href="smart.php">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Metode SMART</span></a>
+    </li>
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

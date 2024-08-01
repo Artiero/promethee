@@ -70,6 +70,7 @@ $userAdmin = $_SESSION['username'];
                                             <th>No</th>
                                             <th>ID</th>
                                             <th>Nama Kriteria</th>
+                                            <th>Bobot</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -78,27 +79,30 @@ $userAdmin = $_SESSION['username'];
                                         $no = 1;
                                         foreach ($kriterias as $kriteria) :
                                         ?>
-                                        <tr>
-                                            <td>
-                                                <?= $no ?>
-                                            </td>
-                                            <td>
-                                            <?= $kriteria['id'] ?>
-                                            </td>
-                                            <td>
-                                                <?= $kriteria['nama_kriteria'] ?>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#modalUbah<?= $kriteria['id']; ?>"><i class="fas fa-user-edit"></i></button>
-                                                <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $kriteria['id']; ?>"> <i class="fas fa-trash-alt"></i> </button>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                        $no++;
-                                        ?>
+                                            <tr>
+                                                <td>
+                                                    <?= $no ?>
+                                                </td>
+                                                <td>
+                                                    <?= $kriteria['id'] ?>
+                                                </td>
+                                                <td>
+                                                    <?= $kriteria['nama_kriteria'] ?>
+                                                </td>
+                                                <td>
+                                                    <?= $kriteria['bobot'] ?>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#modalUbah<?= $kriteria['id']; ?>"><i class="fas fa-user-edit"></i></button>
+                                                    <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $kriteria['id']; ?>"> <i class="fas fa-trash-alt"></i> </button>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                            $no++;
+                                            ?>
                                     </tbody>
 
-                                    
+
 
                                     <!-- Start delete modal -->
                                     <div class="modal fade-costum" id="modalHapus<?= $kriteria['id']; ?>" role="dialog">
@@ -146,11 +150,17 @@ $userAdmin = $_SESSION['username'];
                                                         $edits = query_data("SELECT * FROM tbl_kriteria WHERE id='$id'");
                                                         foreach ($edits as $edit) :
                                                         ?>
-                                                        <input type="hidden" name="id" value="<?=$edit['id']?>">
+                                                            <input type="hidden" name="id" value="<?= $edit['id'] ?>">
                                                             <div class="form-group row mt-3">
                                                                 <label class="col-3 col-form-label">Nama Kriteria</label>
                                                                 <div class="col">
                                                                     <input type="text" class="form-control" name="nama_kriteria" value="<?= $edit['nama_kriteria'] ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group row mt-3">
+                                                                <label class="col-3 col-form-label">Bobot</label>
+                                                                <div class="col">
+                                                                    <input type="number" class="form-control" name="bobot" value="<?= $edit['bobot'] ?>">
                                                                 </div>
                                                             </div>
                                                             <div class="flex text-center mt-4 mb-3">
@@ -167,41 +177,47 @@ $userAdmin = $_SESSION['username'];
                                     </div>
                                     <!-- End ubah modal -->
 
-                                    <?php
+                                <?php
                                         endforeach;
-                                    ?>
+                                ?>
 
-                                    <!-- Start tambah modal -->
-                                    <div class="modal modal-custom fade" id="daftar-data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Tambah Data</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form method="post" action="#" autocomplete="off" id="daftarForm">
-                                                        <div class="form-group row mt-3">
-                                                            <label class="col-3 col-form-label">ID</label>
-                                                            <div class="col">
-                                                                <input type="text" class="form-control" name="id" required placeholder="Masukan ID">
-                                                            </div>
+                                <!-- Start tambah modal -->
+                                <div class="modal modal-custom fade" id="daftar-data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Tambah Data</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="post" action="#" autocomplete="off" id="daftarForm">
+                                                    <div class="form-group row mt-3">
+                                                        <label class="col-3 col-form-label">ID</label>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" name="id" required placeholder="Masukan ID">
                                                         </div>
-                                                        <div class="form-group row mt-3">
-                                                            <label class="col-3 col-form-label">Nama Kriteria</label>
-                                                            <div class="col">
-                                                                <input type="text" class="form-control" name="nama_kriteria" required placeholder="Nama Kriteria">
-                                                            </div>
+                                                    </div>
+                                                    <div class="form-group row mt-3">
+                                                        <label class="col-3 col-form-label">Nama Kriteria</label>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" name="nama_kriteria" required placeholder="Nama Kriteria">
                                                         </div>
-                                                        <div class="text-center mt-3 mb-2">
-                                                            <button type="submit" name="tambah" class="btn btn-primary">Tambah</button>
+                                                    </div>
+                                                    <div class="form-group row mt-3">
+                                                        <label class="col-3 col-form-label">Bobot</label>
+                                                        <div class="col">
+                                                            <input type="number" class="form-control" name="bobot" required placeholder="Bobot">
                                                         </div>
-                                                    </form>
-                                                </div>
+                                                    </div>
+                                                    <div class="text-center mt-3 mb-2">
+                                                        <button type="submit" name="tambah" class="btn btn-primary">Tambah</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- End tambah modal -->
+                                </div>
+                                <!-- End tambah modal -->
 
                                 </table>
                             </div>
@@ -233,6 +249,7 @@ $userAdmin = $_SESSION['username'];
     require 'views/modalLogout.php';
 
     if (isset($_POST['tambah'])) {
+        // var_dump($_POST);
         if (tambah_data_kriteria($_POST) > 0) {
             echo '
                     <script type="text/javascript">

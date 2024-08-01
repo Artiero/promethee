@@ -55,3 +55,29 @@ function hasil_test(){
 
     return [$nilai_terbesar , $nama_pendaftar];
 }
+function hasil_test_smart(){
+    global $conn;
+    $tbl_hasils = query_data("SELECT nama_pendaftar, hasil FROM tbl_hasil_smart");
+    $array_float = [];
+    
+    foreach ($tbl_hasils as $tbl_hasil) :
+        $nama = $tbl_hasil["nama_pendaftar"];
+        $hasil = $tbl_hasil["hasil"];
+        $array_float[] = ["nama_pendaftar" => $nama ,"hasil" => $hasil];
+    endforeach;
+    
+    $nilai_terkecil = null; 
+    
+    foreach ($array_float as $item) :
+        $nama_karyawan = $item["nama_pendaftar"];
+        $nilai = $item["hasil"];
+
+        if ($nilai_terkecil === null || $nilai < $nilai_terkecil) {
+            $nama_pendaftar = $nama_karyawan;
+            $nilai_terkecil = $nilai;
+            // var_dump($nama_pendaftar);
+        }
+    endforeach;
+
+    return [$nilai_terkecil , $nama_pendaftar];
+}

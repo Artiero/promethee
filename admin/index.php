@@ -59,8 +59,8 @@ require './function/global.php';
 
                     <!-- Content Row -->
                     <div class="row">
-                        <p class="h3 mb-4 text-gray-900">PENERAPAN ALGORITAMA PROMETHEE DALAM
-                            PENYELEKSIAN CALON KARYAWAN <br>BERBASIS WEB PADA PO LITHA & CO</p>
+                        <p class="h3 mb-4 text-gray-900">KOMPARASI METODE PROMETHEE DAN SMART DALAM
+                            SELEKSI PENERIMAAN KARYAWAN<br>PADA PT TANJUNG INTI MANDIRI</p>
 
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
